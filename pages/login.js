@@ -6,26 +6,23 @@ export default function Login() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
 
+  const handleLogin = async (email, password) => {
+    const result = await signIn("credentials", {
+      redirect: false, // 기본 리디렉션 비활성화
+      email,
+      password,
+      callbackUrl: `${window.location.origin}/board`,
+    });
+
+    if (result?.url) {
+      // 사용자 정의 리디렉션 실행
+      window.location.href = result.url;
+    }
+  };
+
   const handleSubmit = async (e) => {
     e.preventDefault();
-    // 로그인 처리 로직
-    //   const response = await fetch("/api/login", {
-    //     method: "POST",
-    //     headers: {
-    //       "Content-Type": "application/json",
-    //     },
-    //     body: JSON.stringify({ email, password }),
-    //   });
 
-    //   if (response.ok) {
-    //     // 로그인 성공 처리
-    //     console.log("로그인 성공!");
-    //   } else {
-    //     // 로그인 실패 처리
-    //     console.log("로그인 실패");
-    //   }
-    // };
-    // signIn 함수 호출하여 로그인 시도
     signIn("credentials", {
       email,
       password,
