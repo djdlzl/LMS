@@ -1,0 +1,19 @@
+.container {
+  padding: 20px;
+}
+
+.videos {
+  display: flex;
+  flex-direction: column;
+  gap: 20px; /* 게시글 간 간격 */
+}
+
+.video {
+  border: 1px solid #ccc; /* 얇은 연회색 띠로 박스 스타일 적용 */
+  padding: 15px;
+}
+
+.thumbnail {
+  width: 100%;
+  height: auto; /* 이미지 비율 유지 */
+}
